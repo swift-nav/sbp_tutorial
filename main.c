@@ -137,7 +137,7 @@ int main(void){
 
       /* Print GPS time. */
       printf("GPS Time:\n");
-      printf("\tWeek\t\t: %6d\n", gps_time.wn);
+      printf("\tWeek\t\t: %6d\n", (int)gps_time.wn);
       sprintf(rj, "%6.2f", ((float)gps_time.tow)/1e3);
       printf("\tSeconds\t: %9s\n", rj);
       printf("\n");
@@ -155,16 +155,16 @@ int main(void){
 
       /* Print NED (North/East/Down) baseline (position vector from base to rover). */
       printf("Baseline (mm):\n");
-      printf("\tNorth\t\t: %6d\n", baseline_ned.n);
-      printf("\tEast\t\t: %6d\n", baseline_ned.e);
-      printf("\tDown\t\t: %6d\n", baseline_ned.d);
+      printf("\tNorth\t\t: %6d\n", (int)baseline_ned.n);
+      printf("\tEast\t\t: %6d\n", (int)baseline_ned.e);
+      printf("\tDown\t\t: %6d\n", (int)baseline_ned.d);
       printf("\n");
 
       /* Print NED velocity. */
       printf("Velocity (mm/s):\n");
-      printf("\tNorth\t\t: %6d\n", vel_ned.n);
-      printf("\tEast\t\t: %6d\n", vel_ned.e);
-      printf("\tDown\t\t: %6d\n", vel_ned.d);
+      printf("\tNorth\t\t: %6d\n", (int)vel_ned.n);
+      printf("\tEast\t\t: %6d\n", (int)vel_ned.e);
+      printf("\tDown\t\t: %6d\n", (int)vel_ned.d);
       printf("\n");
 
       /* Print Dilution of Precision metrics. */
