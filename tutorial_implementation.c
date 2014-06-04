@@ -91,7 +91,21 @@ void USART1_IRQHandler(void)
 {
   char c = USART1->DR;
   fifo_write(c);
+//  leds_set();
+  DO_EVERY(100000,
+    leds_toggle();
+  );
 }
+
+//void USART6_IRQHandler(void)
+//{
+//  char c = USART6->DR;
+//  fifo_write(c);
+////  leds_set();
+//  DO_EVERY(100000,
+//    leds_toggle();
+//  );
+//}
 
 void usarts_setup(void){
 
@@ -101,7 +115,7 @@ void usarts_setup(void){
   NVIC_InitTypeDef NVIC_InitStructure;
 
   /* Enable peripheral clock for USART1. */
-  RCC_APB1PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
 
   /* GPIOA clock enable */
   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
@@ -134,46 +148,48 @@ void usarts_setup(void){
   NVIC_Init(&NVIC_InitStructure);
 
   /* USART6 to Piksi. */
-  GPIO_InitTypeDef GPIOC_InitStructure;
-  USART_InitTypeDef USART6_InitStructure;
-
-  /* Enable peripheral clock for USART6. */
-  RCC_APB1PeriphClockCmd(RCC_APB2Periph_USART6, ENABLE);
-
-  /* GPIOC clock enable */
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
-
-  /* GPIOC Configuration:  USART6 TX on PC6 */
-  /* GPIOC Configuration:  USART6 RX on PC7 */
-  GPIOC_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-  GPIOC_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-  GPIOC_InitStructure.GPIO_OType = GPIO_OType_PP;
-  GPIOC_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-  GPIO_PinAFConfig(GPIOA, GPIO_PinSource6, GPIO_AF_USART6);
-  GPIO_PinAFConfig(GPIOA, GPIO_PinSource7, GPIO_AF_USART6);
-  GPIOC_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
-  GPIO_Init(GPIOA, &GPIOC_InitStructure);
-
-  USART6_InitStructure.USART_BaudRate = 115200;
-  USART6_InitStructure.USART_WordLength = USART_WordLength_8b;
-  USART6_InitStructure.USART_StopBits = USART_StopBits_1;
-  USART6_InitStructure.USART_Parity = USART_Parity_No;
-  USART6_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
-  USART6_InitStructure.USART_Mode = USART_Mode_Tx;
-  USART_Init(USART6, &USART6_InitStructure);
-
-  /* Enable USARTs. */
-  USART_Cmd(USART6, ENABLE);
+//  GPIO_InitTypeDef GPIOC_InitStructure;
+//  USART_InitTypeDef USART6_InitStructure;
+//  NVIC_InitTypeDef NVIC_InitStructure;
+//
+//  /* Enable peripheral clock for USART6. */
+////  RCC_APB1PeriphClockCmd(RCC_APB2Periph_USART6, ENABLE);
+//  RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART6, ENABLE);
+//
+//  /* GPIOC clock enable */
+//  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
+//
+//  /* GPIOC Configuration:  USART6 TX on PC6 */
+//  /* GPIOC Configuration:  USART6 RX on PC7 */
+//  GPIOC_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+//  GPIOC_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+//  GPIOC_InitStructure.GPIO_OType = GPIO_OType_PP;
+//  GPIOC_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+//  GPIO_PinAFConfig(GPIOC, GPIO_PinSource6, GPIO_AF_USART6);
+//  GPIO_PinAFConfig(GPIOC, GPIO_PinSource7, GPIO_AF_USART6);
+//  GPIOC_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
+//  GPIO_Init(GPIOC, &GPIOC_InitStructure);
+//
+//  USART6_InitStructure.USART_BaudRate = 115200;
+//  USART6_InitStructure.USART_WordLength = USART_WordLength_8b;
+//  USART6_InitStructure.USART_StopBits = USART_StopBits_1;
+//  USART6_InitStructure.USART_Parity = USART_Parity_No;
+//  USART6_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+//  USART6_InitStructure.USART_Mode = USART_Mode_Rx;
+//  USART_Init(USART6, &USART6_InitStructure);
+//
+//  /* Enable the USART RX Interrupt */
+//  USART_ITConfig(USART6, USART_IT_RXNE, ENABLE);
+//  NVIC_InitStructure.NVIC_IRQChannel = USART6_IRQn;
+//  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+//  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+//  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+//  NVIC_Init(&NVIC_InitStructure);
+//
+//  /* Enable USARTs. */
+//  USART_Cmd(USART6, ENABLE);
   USART_Cmd(USART1, ENABLE);
 }
-
-#define DO_EVERY(n, cmd) do { \
-  static u32 do_every_count = 0; \
-  if (do_every_count % (n) == 0) { \
-    cmd; \
-  } \
-  do_every_count++; \
-} while(0)
 
 void leds_set(void){
   GPIO_SetBits(GPIOD, GPIO_Pin_13 | GPIO_Pin_12);

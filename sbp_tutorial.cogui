@@ -11,13 +11,28 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/colin/Desktop/sbp_tutorial/main.c" title="main.c" tooltip="C:/Users/colin/Desktop/sbp_tutorial/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/sbp_tutorial/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="790" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3856" selectionTopPixel="1470"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="tutorial_implementation.c" partName="tutorial_implementation.c" path="C:/Users/colin/Desktop/sbp_tutorial/tutorial_implementation.c" title="tutorial_implementation.c" tooltip="C:/Users/colin/Desktop/sbp_tutorial/tutorial_implementation.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/sbp_tutorial/tutorial_implementation.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2566" selectionTopPixel="1545"/>
+</editor>
+<editor id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" partName="Repository" title="Repository" tooltip="Repository" workbook="DefaultEditorWorkbook">
+<input factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory">&#x0A;<subPage horizontalPosition="0" selectedItemId="524" subPageIndex="2" verticalPosition="287"/>
+</input>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="tutorial_implementation.h" partName="tutorial_implementation.h" path="C:/Users/colin/Desktop/sbp_tutorial/tutorial_implementation.h" title="tutorial_implementation.h" tooltip="C:/Users/colin/Desktop/sbp_tutorial/tutorial_implementation.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/sbp_tutorial/tutorial_implementation.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -25,10 +40,16 @@
 <viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/sbp_tutorial"/>
+<element path="/sbp_tutorial/cmsis"/>
+<element path="/sbp_tutorial/cmsis_boot"/>
+<element path="/sbp_tutorial/cmsis_boot/startup"/>
+<element path="/sbp_tutorial/cmsis_lib"/>
+<element path="/sbp_tutorial/cmsis_lib/include"/>
 <element path="/sbp_tutorial/semihosting"/>
+<element path="/sbp_tutorial/syscalls"/>
 </expanded>
 <selection>
-<element path="/sbp_tutorial/main.c"/>
+<element path="/sbp_tutorial/tutorial_implementation.h"/>
 </selection>
 </viewState>
 </view>
@@ -47,7 +68,6 @@
 <view id="org.eclipse.cdt.dsf.debug.ui.disassembly.view" partName="Disassembly">
 <viewState disassembly.syncActiveContext="true" disassembly.trackExpression="false"/>
 </view>
-<view id="org.eclipse.debug.ui.VariableView" partName="Variables"/>
 <view id="org.coocox.component.ui.Help" partName="Help">
 <viewState/>
 </view>
@@ -112,7 +132,7 @@
 </folder>
 </info>
 <info part="org.coocox.builder.ui.exampleView" ratio="0.21966527" ratioLeft="420" ratioRight="1492" relationship="2" relative="org.eclipse.ui.internal.ViewStack@7249be"/>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@17fd678" ratio="0.71983916" ratioLeft="1074" ratioRight="418" relationship="2" relative="org.coocox.builder.ui.exampleView">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@17fd678" ratio="0.5928668" ratioLeft="881" ratioRight="605" relationship="2" relative="org.coocox.builder.ui.exampleView">
 <folder activePageID="org.coocox.component.ui.Help" appearance="2" expanded="2">
 <page content="org.coocox.component.ui.Help" label="Help"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
@@ -178,48 +198,62 @@
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.coocox.builder.ui.build"/>
 <hide_toolbar_item_id id="org.coocox.welcome.ui.action.welcome"/>
-<hide_toolbar_item_id id="org.coocox.component.ui.ShowRepositoryAction"/>
 <hide_toolbar_item_id id="org.coocox.codebugger.configuration.coideProgramDownloadAction"/>
+<hide_toolbar_item_id id="org.coocox.component.ui.ShowRepositoryAction"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.debug.ui.DebugView"/>
-<view id="org.coocox.codebugger.trace.ui.traceview"/>
-<view id="org.eclipse.debug.ui.VariableView"/>
 <view id="org.eclipse.cdt.dsf.debug.ui.disassembly.view"/>
 <view id="org.coocox.builder.ui.views.ProjectView"/>
+<view id="org.coocox.codebugger.trace.ui.traceview"/>
 <fastViewBars/>
 <viewLayoutRec closeable="false" id="org.eclipse.debug.ui.DebugView"/>
-<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.ui.internal.ViewStack@194eb7">&#x0A;<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">&#x0A;<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@194eb7">
+<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">
+<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1074" ratioRight="358" relationship="2" relative="org.eclipse.ui.internal.ViewStack@194eb7">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1074" ratioRight="358" relationship="2" relative="org.eclipse.ui.internal.ViewStack@194eb7">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@e61afd" ratio="0.54677206" ratioLeft="415" ratioRight="344" relationship="4" relative="org.eclipse.ui.internal.ViewStack@194eb7">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@e61afd" ratio="0.54677206" ratioLeft="415" ratioRight="344" relationship="4" relative="org.eclipse.ui.internal.ViewStack@194eb7">
+<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@f5fb61" ratio="0.5" ratioLeft="716" ratioRight="716" relationship="2" relative="org.eclipse.ui.internal.ViewStack@e61afd">&#x0A;<folder activePageID="org.coocox.codebugger.trace.ui.traceview" appearance="2" expanded="2">&#x0A;<page content="org.coocox.codebugger.trace.ui.traceview" label="Semihosting"/>
-<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@f5fb61" ratio="0.5" ratioLeft="716" ratioRight="716" relationship="2" relative="org.eclipse.ui.internal.ViewStack@e61afd">
+<folder activePageID="org.coocox.codebugger.trace.ui.traceview" appearance="2" expanded="2">
+<page content="org.coocox.codebugger.trace.ui.traceview" label="Semihosting"/>
+<page content="org.eclipse.debug.ui.VariableView" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.MemoryView" label="LabelNotFound"/>
 <page content="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
-<part id="1"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@14acdfb" ratio="0.75" ratioLeft="1074" ratioRight="358" relationship="2" relative="org.eclipse.ui.internal.ViewStack@194eb7">&#x0A;<folder activePageID="org.eclipse.cdt.dsf.debug.ui.disassembly.view" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="Disassembly"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@14acdfb" ratio="0.75" ratioLeft="1074" ratioRight="358" relationship="2" relative="org.eclipse.ui.internal.ViewStack@194eb7">
+<folder activePageID="org.eclipse.cdt.dsf.debug.ui.disassembly.view" appearance="2" expanded="2">
+<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="Disassembly"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
 <page content="org.coocox.coassistant.view.CoAssistantView_debug" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
@@ -231,179 +265,161 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f4_discovery_sbp_tutorial/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f4_discovery_sbp_tutorial/tutorial_implementation.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f4_discovery_sbp_tutorial/tutorial_implementation.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f4_discovery_sbp_tutorial/syscalls/syscalls.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f4_discovery_sbp_tutorial/semihosting/semihosting.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" path="/stm32f4_discovery_sbp_tutorial/semihosting/sh_cmd.s"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f4_discovery_sbp_tutorial/semihosting/semihosting.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f4_discovery_sbp_tutorial/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f4_discovery_sbp_tutorial/semihosting/semihosting.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f4_discovery_sbp_tutorial/syscalls/syscalls.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" path="/stm32f4_discovery_sbp_tutorial/semihosting/sh_cmd.s"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" path="/stm32f4_discovery_sbp_tutorial/semihosting/sh_cmd.s"/>
-<editor factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser">
-<subPage/>
-</editor>
-<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
-<org.coocox.builder.ui.editors.ConfigEditor/>
-</editor>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/stm32f4_discovery_sbp_tutorial/main.c"/>
-<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage">
-<org.coocox.welcome.ui.WelcomePage/>
-</editor>
-<editor factoryID="org.coocox.component.board.ui.editor.BoardEditorElementFactory" id="org.coocox.component.board.ui.editor.BoardBrowserEditor">
-<subPage/>
-</editor>
-<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage">
-<org.coocox.welcome.ui.WelcomePage/>
-</editor>
-<editor factoryID="org.coocox.component.board.ui.editor.BoardEditorElementFactory" id="org.coocox.component.board.ui.editor.BoardBrowserEditor">
-<subPage/>
-</editor>
-<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.welcome.ui.WelcomePage">
-<org.coocox.welcome.ui.WelcomePage/>
-</editor>
-<editor factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser">
-<subPage horizontalPosition="0" selectedItemId="31" subPageIndex="2" verticalPosition="0"/>
-</editor>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sbp_tutorial/main.c"/>
-<editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
-<org.coocox.builder.ui.editors.ConfigEditor/>
-</editor>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sbp_tutorial/tutorial_implementation.c"/>
-<editor factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser">
-<subPage/>
-</editor>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sbp_tutorial/tutorial_implementation.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sbp_tutorial/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sbp_tutorial/cmsis_boot/startup/startup_stm32f4xx.c"/>
 </editors>
-<item historyLabel="semihosting.h" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="sh_cmd.s" index="5">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="1257" y="0"/>
 </item>
 <item historyLabel="tutorial_implementation.c" index="1">
-<position info="not_deleted" x="1763" y="0"/>
+<position info="not_deleted" x="1534" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3743" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="1534" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="1532" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="1426" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="1192" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="1402" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="1226" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="4705" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3863" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="2282" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="6560" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="2282" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="2276" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="2119" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="6351" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="2122" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3649" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="2122" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="2226" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="2230" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="2083" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3649" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="1535" y="0"/>
 </item>
 <item historyLabel="tutorial_implementation.h" index="2">
-<position info="not_deleted" x="496" y="0"/>
-</item>
-<item historyLabel="syscalls.c" index="3">
-<position info="not_deleted" x="278" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="631" y="0"/>
-</item>
-<item historyLabel="semihosting.h" index="4">
-<position info="not_deleted" x="821" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="631" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1218" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1182" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1575" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="4120" y="0"/>
+<position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="tutorial_implementation.c" index="1">
-<position info="not_deleted" x="1763" y="0"/>
+<position info="not_deleted" x="2377" y="0"/>
 </item>
-<item historyLabel="semihosting.c" index="6">
-<position info="not_deleted" x="386" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="4375" y="0"/>
 </item>
 <item historyLabel="tutorial_implementation.c" index="1">
-<position info="not_deleted" x="2722" y="0"/>
+<position info="not_deleted" x="2377" y="0"/>
 </item>
-<item historyLabel="main.c" index="7">
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="4375" y="0"/>
+</item>
+<item historyLabel="main.c" index="3">
 <position info="not_deleted" x="3561" y="0"/>
 </item>
-<item historyLabel="semihosting.h" index="8">
-<position info="not_deleted" x="821" y="0"/>
-</item>
-<item historyLabel="semihosting.c" index="6">
-<position info="not_deleted" x="386" y="0"/>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="1192" y="0"/>
 </item>
 <item historyLabel="tutorial_implementation.c" index="1">
-<position info="not_deleted" x="2936" y="0"/>
-</item>
-<item historyLabel="main.c" index="7">
-<position info="not_deleted" x="3710" y="0"/>
-</item>
-<item historyLabel="semihosting.h" index="8">
-<position info="not_deleted" x="821" y="0"/>
-</item>
-<item historyLabel="semihosting.c" index="6">
-<position info="not_deleted" x="386" y="0"/>
-</item>
-<item historyLabel="syscalls.c" index="9">
-<position info="not_deleted" x="388" y="0"/>
-</item>
-<item historyLabel="semihosting.h" index="8">
-<position info="not_deleted" x="821" y="0"/>
-</item>
-<item historyLabel="semihosting.c" index="6">
-<position info="not_deleted" x="386" y="0"/>
-</item>
-<item historyLabel="sh_cmd.s" index="10">
-<position info="not_deleted" x="0" y="0"/>
+<position info="not_deleted" x="2373" y="0"/>
 </item>
 <item historyLabel="tutorial_implementation.c" index="1">
-<position info="not_deleted" x="2936" y="0"/>
-</item>
-<item historyLabel="sh_cmd.s" index="11">
-<position info="not_deleted" x="0" y="0"/>
+<position info="not_deleted" x="1192" y="0"/>
 </item>
 <item historyLabel="tutorial_implementation.c" index="1">
-<position info="not_deleted" x="550" y="0"/>
+<position info="not_deleted" x="2897" y="0"/>
 </item>
-<item historyLabel="Repository" index="12"/>
-<item historyLabel="Configuration" index="13"/>
-<item historyLabel="main.c" index="14">
-<position info="not_deleted" x="3751" y="0"/>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="3561" y="0"/>
 </item>
-<item historyLabel="welcome" index="15"/>
-<item historyLabel="Repository" index="16"/>
-<item historyLabel="welcome" index="17"/>
-<item historyLabel="Repository" index="18"/>
-<item historyLabel="welcome" index="19"/>
-<item historyLabel="Repository" index="20"/>
-<item historyLabel="main.c" index="21">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="5890" y="0"/>
 </item>
-<item historyLabel="main.c" index="21">
-<position info="not_deleted" x="593" y="0"/>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="544" y="0"/>
 </item>
-<item historyLabel="Configuration" index="22"/>
-<item historyLabel="main.c" index="21">
-<position info="not_deleted" x="944" y="0"/>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="4244" y="0"/>
 </item>
-<item historyLabel="tutorial_implementation.c" index="23">
-<position info="not_deleted" x="665" y="0"/>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="2772" y="0"/>
 </item>
-<item historyLabel="Configuration" index="22"/>
-<item historyLabel="tutorial_implementation.c" index="23">
-<position info="not_deleted" x="262" y="0"/>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="3325" y="0"/>
 </item>
-<item historyLabel="main.c" index="21">
-<position info="not_deleted" x="708" y="0"/>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="2791" y="0"/>
 </item>
-<item historyLabel="tutorial_implementation.c" index="23">
-<position info="not_deleted" x="262" y="0"/>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="5903" y="0"/>
 </item>
-<item historyLabel="main.c" index="21">
-<position info="not_deleted" x="708" y="0"/>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="3375" y="0"/>
 </item>
-<item historyLabel="Repository" index="24"/>
-<item active="true" historyLabel="main.c" index="21">
-<position info="not_deleted" x="546" y="0"/>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="2126" y="139"/>
+</item>
+<item historyLabel="startup_stm32f4xx.c" index="4">
+<position info="not_deleted" x="20671" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="1">
+<position info="not_deleted" x="2566" y="0"/>
+</item>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="3561" y="0"/>
+</item>
+<item historyLabel="main.c" index="3">
+<position info="not_deleted" x="3743" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="3">
+<position info="not_deleted" x="3561" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -412,8 +428,11 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tutorial_implementation.c" tooltip="sbp_tutorial/tutorial_implementation.c">
-<persistable path="/sbp_tutorial/tutorial_implementation.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tutorial_implementation.h" tooltip="sbp_tutorial/tutorial_implementation.h">
+<persistable path="/sbp_tutorial/tutorial_implementation.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.asm.AsmEditor" name="sh_cmd.s" tooltip="sbp_tutorial/semihosting/sh_cmd.s">
+<persistable path="/sbp_tutorial/semihosting/sh_cmd.s"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="sbp_tutorial/main.c">
 <persistable path="/sbp_tutorial/main.c"/>
@@ -427,20 +446,8 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="semihosting.h" tooltip="hello_world_stm32f4_discovery_2/semihosting/semihosting.h">
 <persistable path="/hello_world_stm32f4_discovery_2/semihosting/semihosting.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="printf.c" tooltip="hello_world_stm32f4_discovery_2/stdio/printf.c">
-<persistable path="/hello_world_stm32f4_discovery_2/stdio/printf.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="semihosting.c" tooltip="hello_world_stm32f4_discovery_2/semihosting/semihosting.c">
-<persistable path="/hello_world_stm32f4_discovery_2/semihosting/semihosting.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="semihosting.h" tooltip="hello_world_stm32f4_discovery_2/semihosting/semihosting.h">
-<persistable path="/hello_world_stm32f4_discovery_2/semihosting/semihosting.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="printf.c" tooltip="hello_world_stm32f4_discovery_2/stdio/printf.c">
-<persistable path="/hello_world_stm32f4_discovery_2/stdio/printf.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="semihosting.c" tooltip="hello_world_stm32f4_discovery_2/semihosting/semihosting.c">
-<persistable path="/hello_world_stm32f4_discovery_2/semihosting/semihosting.c"/>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="stm32f4_discovery_sbp_tutorial.coproj" tooltip="C:\Users\colin\Desktop\sbp_tutorial\stm32f4_discovery_sbp_tutorial.coproj">
+<persistable uri="file:/C:/Users/colin/Desktop/sbp_tutorial/stm32f4_discovery_sbp_tutorial.coproj"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tutorial_implementation.h" tooltip="stm32f4_discovery_sbp_tutorial/tutorial_implementation.h">
 <persistable path="/stm32f4_discovery_sbp_tutorial/tutorial_implementation.h"/>
@@ -448,14 +455,23 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tutorial_implementation.c" tooltip="stm32f4_discovery_sbp_tutorial/tutorial_implementation.c">
 <persistable path="/stm32f4_discovery_sbp_tutorial/tutorial_implementation.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tutorial_implementation.c" tooltip="sbp_tutorial/tutorial_implementation.c">
-<persistable path="/sbp_tutorial/tutorial_implementation.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="semihosting.h" tooltip="hello_world_stm32f4_discovery_2/semihosting/semihosting.h">
+<persistable path="/hello_world_stm32f4_discovery_2/semihosting/semihosting.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="sbp_tutorial/main.c">
-<persistable path="/sbp_tutorial/main.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="printf.c" tooltip="hello_world_stm32f4_discovery_2/stdio/printf.c">
+<persistable path="/hello_world_stm32f4_discovery_2/stdio/printf.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tutorial_implementation.c" tooltip="stm32f4_discovery_sbp_tutorial/tutorial_implementation.c">
-<persistable path="/stm32f4_discovery_sbp_tutorial/tutorial_implementation.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f4xx.h" tooltip="stm32f4_discovery_sbp_tutorial/cmsis_boot/system_stm32f4xx.h">
+<persistable path="/stm32f4_discovery_sbp_tutorial/cmsis_boot/system_stm32f4xx.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="core_cmInstr.h" tooltip="stm32f4_discovery_sbp_tutorial/cmsis/core_cmInstr.h">
+<persistable path="/stm32f4_discovery_sbp_tutorial/cmsis/core_cmInstr.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="core_cm4.h" tooltip="stm32f4_discovery_sbp_tutorial/cmsis/core_cm4.h">
+<persistable path="/stm32f4_discovery_sbp_tutorial/cmsis/core_cm4.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="core_cm4.h" tooltip="stm32f4_discovery_sbp_tutorial/cmsis/core_cm4.h">
+<persistable path="/stm32f4_discovery_sbp_tutorial/cmsis/core_cm4.h"/>
 </file>
 </mruList>
 </workbench>

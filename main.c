@@ -113,11 +113,13 @@ int main(void){
     /*
      * sbp_process must be called periodically in your
      * main program loop to consume the received bytes
-     * from Piksi and parse the SBP messages.
+     * from Piksi and parse the SBP messages from them.
      *
-     * In this tutorial we use a FIFO to hold the data
+     * In this tutorial we use a FIFO structure to hold the data
      * before it is consumed by sbp_process; this helps ensure that no
-     * data is lost or overwritten between calls to sbp_process.
+     * data is lost or overwritten between calls to sbp_process. See
+     * tutorial_implementation.c for the interaction between the USART
+     * and the FIFO.
      *
      * sbp_process must be passed a function that conforms to the definition
      *     u32 get_bytes(u8 *buff, u32 n, void *context);
@@ -181,7 +183,7 @@ int main(void){
       printf("\tVDOP\t\t: %7s\n", rj);
       printf("\n");
 
-      leds_toggle();
+//      leds_toggle();
     );
   }
 
