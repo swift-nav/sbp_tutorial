@@ -8,6 +8,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
+#include <semihosting.h>
+
 #undef errno
 extern int errno;
 extern int  _end;
@@ -65,7 +67,18 @@ int _read(int file, char *ptr, int len)
 __attribute__ ((used))
 int _write(int file, char *ptr, int len)
 {
-  return len;
+  /* Place your implementation of fputc here */
+  /* e.g. write a character to the USART */
+        int counter;
+
+        counter = len;
+        for (; counter > 0; counter--)
+        {
+                        if (*ptr == 0) break;
+                        SH_SendChar(*ptr);
+                        ptr++;
+        }
+        return len;
 }
 
 __attribute__ ((used))
