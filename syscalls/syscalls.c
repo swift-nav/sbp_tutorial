@@ -69,22 +69,12 @@ int _read(int file, char *ptr, int len)
 __attribute__ ((used))
 int _write(int file, char *ptr, int len)
 {
-  /* Copy the chars into a 0 delimited string. */
+  /* Copy the chars into a 0 delimited string. Not
+   * using strcpy as ptr[] may not be null terminated. */
   char *str = malloc((len+1)*sizeof(char));
   str[len] = 0;
   memcpy(str, ptr, len);
-  /* Place your implementation of fputc here */
-  /* e.g. write a character to the USART */
   SH_SendString(str);
-//        int counter;
-//
-//        counter = len;
-//        for (; counter > 0; counter--)
-//        {
-//                        if (*ptr == 0) break;
-//                        SH_SendChar(*ptr);
-//                        ptr++;
-//        }
   free(str);
   return len;
 }
