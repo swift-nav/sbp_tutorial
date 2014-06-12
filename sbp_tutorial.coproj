@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Project version="2G - 1.7.6" name="sbp_tutorial">
   <Target name="sbp_tutorial" isCurrent="1">
-    <Device manufacturerId="9" manufacturerName="ST" chipId="342" chipName="STM32F405RG" boardId="" boardName=""/>
+    <Device manufacturerId="9" manufacturerName="ST" chipId="344" chipName="STM32F407VG" boardId="" boardName=""/>
     <BuildOption>
       <Compile>
         <Option name="OptimizationLevel" value="0"/>
         <Option name="UseFPU" value="0"/>
         <Option name="UserEditCompiler" value="-std=gnu99"/>
         <Option name="SupportCPlusplus" value="0"/>
-        <Option name="FPU" value="1"/>
+        <Option name="FPU" value="2"/>
         <Includepaths>
           <Includepath path="."/>
         </Includepaths>
         <DefinedSymbols>
           <Define name="__FPU_USED"/>
-          <Define name="STM32F405RG"/>
+          <Define name="STM32F407VG"/>
           <Define name="STM32F4XX"/>
           <Define name="USE_STDPERIPH_DRIVER"/>
           <Define name="__ASSEMBLY__"/>
@@ -94,11 +94,11 @@
     <File name="libswiftnav/edc.h" path="libswiftnav/include/libswiftnav/edc.h" type="1"/>
     <File name="libswiftnav/track.c" path="libswiftnav/src/track.c" type="1"/>
     <File name="libswiftnav/coord_system.c" path="libswiftnav/src/coord_system.c" type="1"/>
-    <File name="libswiftnav/tropo.c" path="libswiftnav/src/tropo.c" type="1"/>
     <File name="semihosting/sh_cmd.s" path="semihosting/sh_cmd.s" type="1"/>
+    <File name="libswiftnav/tropo.c" path="libswiftnav/src/tropo.c" type="1"/>
+    <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
-    <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
     <File name="libswiftnav/bits.h" path="libswiftnav/include/libswiftnav/bits.h" type="1"/>
     <File name="cmsis/core_cmFunc.h" path="cmsis/core_cmFunc.h" type="1"/>
     <File name="libswiftnav/rtcm3.h" path="libswiftnav/include/libswiftnav/rtcm3.h" type="1"/>

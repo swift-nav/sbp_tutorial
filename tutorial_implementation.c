@@ -39,13 +39,6 @@ u8 fifo_empty(void){
   return 0;
 }
 
-/* Return 1 if true, 0 otherwise. */
-u8 fifo_full(void){
-  if (((tail+1)%FIFO_LEN) == head)
-    return 1;
-  return 0;
-}
-
 /*
  * Append a character to our SBP message fifo.
  * Returns 1 if char successfully appended to fifo.
@@ -87,14 +80,37 @@ u32 fifo_read(u8 *buff, u32 n, void *context) {
   return i;
 }
 
+/* Return 1 if true, 0 otherwise. */
+u8 fifo_full(void){
+  if (((tail+1)%FIFO_LEN) == head) {
+    return 1;
+  }
+  return 0;
+}
+
 void USART1_IRQHandler(void)
 {
+  __asm__ ("CPSID I");
   char c = USART1->DR;
   fifo_write(c);
-//  leds_set();
-  DO_EVERY(100000,
+//  if (!(USART1->SR & USART_SR_RXNE)) {
+  DO_EVERY(1000,
     leds_toggle();
   );
+  USART1->SR &= ~(USART_FLAG_RXNE);
+  __asm__ ("CPSIE I");
+//  CPSIE I;
+//  leds_set();
+//  }
+//  if (USART1->SR & USART_SR_RXNE) {
+//    leds_set();
+//  }
+
+//  leds_set();
+//  DO_EVERY(100000,
+//    leds_toggle();
+//  );
+//  while( !(USART1->SR & USART_SR_RXNE) );
 }
 
 //void USART6_IRQHandler(void)
@@ -142,7 +158,7 @@ void usarts_setup(void){
   /* Enable the USART RX Interrupt */
   USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
   NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
-  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3;
   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   NVIC_Init(&NVIC_InitStructure);

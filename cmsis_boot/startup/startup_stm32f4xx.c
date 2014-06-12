@@ -154,7 +154,7 @@ __attribute__ ((used,section(".isr_vector")))
 void (* const g_pfnVectors[])(void) =
 {
   /*----------Core Exceptions------------------------------------------------ */
-  (void (*)(void))((unsigned long)pulStack + sizeof(pulStack)),
+  (void *)&pulStack[STACK_SIZE],     /*!< The initial stack pointer         */
   Reset_Handler,             /*!< Reset Handler                               */
   NMI_Handler,               /*!< NMI Handler                                 */
   HardFault_Handler,         /*!< Hard Fault Handler                          */

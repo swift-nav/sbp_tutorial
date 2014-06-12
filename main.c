@@ -11,6 +11,7 @@
  */
 
 #include <stdio.h>
+#include <string.h>
 
 #include <stm32f4xx.h>
 
@@ -56,6 +57,7 @@ void sbp_dops_callback(u16 sender_id, u8 len, u8 msg[], void *context)
 void sbp_gps_time_callback(u16 sender_id, u8 len, u8 msg[], void *context)
 {
   gps_time = *(sbp_gps_time_t *)msg;
+//  leds_set();
 }
 
 /*
@@ -107,6 +109,10 @@ int main(void){
 
   /* Use sprintf to right justify floating point prints. */
   char rj[30];
+  /* Only want 1 call to SH_SendString as semihosting is quite slow.
+   * sprintf everything to this array and then print using array. */
+  char str[1000];
+  int str_i;
 
   while(1){
 
@@ -128,62 +134,69 @@ int main(void){
      */
     while (!fifo_empty()) {
       s8 ret = sbp_process(&sbp_state, &fifo_read);
-      if (ret < 0)
-        printf("sbp_process error.\n");
+//      if (ret < 0)
+//        printf("sbp_process error.\n");
     }
 
     /* Print data from messages received from Piksi. */
-    DO_EVERY(500000,
+    DO_EVERY(200000,
 
-      printf("\n\n\n\n");
+      str_i = 0;
+      memset(str, 0, sizeof(str));
+
+      str_i += sprintf(str + str_i, "\n\n\n\n");
 
       /* Print GPS time. */
-      printf("GPS Time:\n");
-      printf("\tWeek\t\t: %6d\n", (int)gps_time.wn);
+      str_i += sprintf(str + str_i, "GPS Time:\n");
+      str_i += sprintf(str + str_i, "\tWeek\t\t: %6d\n", (int)gps_time.wn);
       sprintf(rj, "%6.2f", ((float)gps_time.tow)/1e3);
-      printf("\tSeconds\t: %9s\n", rj);
-      printf("\n");
+      str_i += sprintf(str + str_i, "\tSeconds\t: %9s\n", rj);
+      str_i += sprintf(str + str_i, "\n");
 
       /* Print absolute position. */
-      printf("Absolute Position:\n");
+      str_i += sprintf(str + str_i, "Absolute Position:\n");
       sprintf(rj, "%4.10lf", pos_llh.lat);
-      printf("\tLatitude\t: %17s\n", rj);
+      str_i += sprintf(str + str_i, "\tLatitude\t: %17s\n", rj);
       sprintf(rj, "%4.10lf", pos_llh.lon);
-      printf("\tLongitude\t: %17s\n", rj);
+      str_i += sprintf(str + str_i, "\tLongitude\t: %17s\n", rj);
       sprintf(rj, "%4.10lf", pos_llh.height);
-      printf("\tHeight\t: %17s\n", rj);
-      printf("\tSatellites\t:     %02d\n", pos_llh.n_sats);
-      printf("\n");
+      str_i += sprintf(str + str_i, "\tHeight\t: %17s\n", rj);
+      str_i += sprintf(str + str_i, "\tSatellites\t:     %02d\n", pos_llh.n_sats);
+      str_i += sprintf(str + str_i, "\n");
 
       /* Print NED (North/East/Down) baseline (position vector from base to rover). */
-      printf("Baseline (mm):\n");
-      printf("\tNorth\t\t: %6d\n", (int)baseline_ned.n);
-      printf("\tEast\t\t: %6d\n", (int)baseline_ned.e);
-      printf("\tDown\t\t: %6d\n", (int)baseline_ned.d);
-      printf("\n");
+      str_i += sprintf(str + str_i, "Baseline (mm):\n");
+      str_i += sprintf(str + str_i, "\tNorth\t\t: %6d\n", (int)baseline_ned.n);
+      str_i += sprintf(str + str_i, "\tEast\t\t: %6d\n", (int)baseline_ned.e);
+      str_i += sprintf(str + str_i, "\tDown\t\t: %6d\n", (int)baseline_ned.d);
+      str_i += sprintf(str + str_i, "\n");
 
       /* Print NED velocity. */
-      printf("Velocity (mm/s):\n");
-      printf("\tNorth\t\t: %6d\n", (int)vel_ned.n);
-      printf("\tEast\t\t: %6d\n", (int)vel_ned.e);
-      printf("\tDown\t\t: %6d\n", (int)vel_ned.d);
-      printf("\n");
+      str_i += sprintf(str + str_i, "Velocity (mm/s):\n");
+      str_i += sprintf(str + str_i, "\tNorth\t\t: %6d\n", (int)vel_ned.n);
+      str_i += sprintf(str + str_i, "\tEast\t\t: %6d\n", (int)vel_ned.e);
+      str_i += sprintf(str + str_i, "\tDown\t\t: %6d\n", (int)vel_ned.d);
+      str_i += sprintf(str + str_i, "\n");
 
       /* Print Dilution of Precision metrics. */
-      printf("Dilution of Precision:\n");
+      str_i += sprintf(str + str_i, "Dilution of Precision:\n");
       sprintf(rj, "%4.2f", ((float)dops.gdop/100));
-      printf("\tGDOP\t\t: %7s\n", rj);
+      str_i += sprintf(str + str_i, "\tGDOP\t\t: %7s\n", rj);
       sprintf(rj, "%4.2f", ((float)dops.hdop/100));
-      printf("\tHDOP\t\t: %7s\n", rj);
+      str_i += sprintf(str + str_i, "\tHDOP\t\t: %7s\n", rj);
       sprintf(rj, "%4.2f", ((float)dops.pdop/100));
-      printf("\tPDOP\t\t: %7s\n", rj);
+      str_i += sprintf(str + str_i, "\tPDOP\t\t: %7s\n", rj);
       sprintf(rj, "%4.2f", ((float)dops.tdop/100));
-      printf("\tTDOP\t\t: %7s\n", rj);
+      str_i += sprintf(str + str_i, "\tTDOP\t\t: %7s\n", rj);
       sprintf(rj, "%4.2f", ((float)dops.vdop/100));
-      printf("\tVDOP\t\t: %7s\n", rj);
-      printf("\n");
+      str_i += sprintf(str + str_i, "\tVDOP\t\t: %7s\n", rj);
+      str_i += sprintf(str + str_i, "\n");
 
-//      leds_toggle();
+      leds_toggle();
+
+      __asm__ ("CPSID I");
+      SH_SendString(str);
+      __asm__ ("CPSIE I");
     );
   }
 
