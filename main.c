@@ -194,9 +194,7 @@ int main(void){
 
       leds_toggle();
 
-      __asm__ ("CPSID I");
       SH_SendString(str);
-      __asm__ ("CPSIE I");
     );
   }
 
