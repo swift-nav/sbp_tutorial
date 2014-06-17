@@ -92,20 +92,20 @@
     <File name="libswiftnav/sbp_utils.h" path="libswiftnav/include/libswiftnav/sbp_utils.h" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_usart.h" path="cmsis_lib/include/stm32f4xx_usart.h" type="1"/>
     <File name="libswiftnav/edc.h" path="libswiftnav/include/libswiftnav/edc.h" type="1"/>
-    <File name="libswiftnav/track.c" path="libswiftnav/src/track.c" type="1"/>
     <File name="libswiftnav/coord_system.c" path="libswiftnav/src/coord_system.c" type="1"/>
+    <File name="libswiftnav/track.c" path="libswiftnav/src/track.c" type="1"/>
     <File name="semihosting/sh_cmd.s" path="semihosting/sh_cmd.s" type="1"/>
     <File name="libswiftnav/tropo.c" path="libswiftnav/src/tropo.c" type="1"/>
+    <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
     <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
-    <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
     <File name="libswiftnav/bits.h" path="libswiftnav/include/libswiftnav/bits.h" type="1"/>
     <File name="cmsis/core_cmFunc.h" path="cmsis/core_cmFunc.h" type="1"/>
     <File name="libswiftnav/rtcm3.h" path="libswiftnav/include/libswiftnav/rtcm3.h" type="1"/>
     <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
     <File name="semihosting/semihosting.c" path="semihosting/semihosting.c" type="1"/>
-    <File name="libswiftnav/memory_pool.h" path="libswiftnav/include/libswiftnav/memory_pool.h" type="1"/>
     <File name="libswiftnav/single_diff.h" path="libswiftnav/include/libswiftnav/single_diff.h" type="1"/>
+    <File name="libswiftnav/memory_pool.h" path="libswiftnav/include/libswiftnav/memory_pool.h" type="1"/>
     <File name="libswiftnav/prns.h" path="libswiftnav/include/libswiftnav/prns.h" type="1"/>
     <File name="libswiftnav/linear_algebra.h" path="libswiftnav/include/libswiftnav/linear_algebra.h" type="1"/>
     <File name="libswiftnav/common.h" path="libswiftnav/include/libswiftnav/common.h" type="1"/>
@@ -117,8 +117,8 @@
     <File name="libswiftnav/almanac.c" path="libswiftnav/src/almanac.c" type="1"/>
     <File name="libswiftnav/sbp_utils.c" path="libswiftnav/src/sbp_utils.c" type="1"/>
     <File name="cmsis_lib/source" path="" type="2"/>
-    <File name="libswiftnav/sbp_messages.h" path="libswiftnav/include/libswiftnav/sbp_messages.h" type="1"/>
     <File name="libswiftnav/pvt.c" path="libswiftnav/src/pvt.c" type="1"/>
+    <File name="libswiftnav/sbp_messages.h" path="libswiftnav/include/libswiftnav/sbp_messages.h" type="1"/>
     <File name="libswiftnav/gpstime.c" path="libswiftnav/src/gpstime.c" type="1"/>
     <File name="cmsis_boot/stm32f4xx_conf.h" path="cmsis_boot/stm32f4xx_conf.h" type="1"/>
     <File name="cmsis_boot/system_stm32f4xx.h" path="cmsis_boot/system_stm32f4xx.h" type="1"/>
@@ -152,8 +152,8 @@
     <File name="libswiftnav/correlate.c" path="libswiftnav/src/correlate.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_gpio.h" path="cmsis_lib/include/stm32f4xx_gpio.h" type="1"/>
     <File name="syscalls" path="" type="2"/>
-    <File name="tutorial_implementation.h" path="tutorial_implementation.h" type="1"/>
     <File name="libswiftnav/sats_management.h" path="libswiftnav/include/libswiftnav/sats_management.h" type="1"/>
+    <File name="tutorial_implementation.h" path="tutorial_implementation.h" type="1"/>
     <File name="cmsis_lib/include/misc.h" path="cmsis_lib/include/misc.h" type="1"/>
     <File name="libswiftnav/rtcm3.c" path="libswiftnav/src/rtcm3.c" type="1"/>
     <File name="libswiftnav/dgnss_management.h" path="libswiftnav/include/libswiftnav/dgnss_management.h" type="1"/>
