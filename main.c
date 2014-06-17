@@ -133,14 +133,12 @@ int main(void){
      * that provides access to the bytes received from Piksi. See fifo_read and
      * related code in tutorial_implementation.c for a reference.
      */
-    while (!fifo_empty()) {
-      s8 ret = sbp_process(&sbp_state, &fifo_read);
-      /* Semihosting is slow - each loop the FIFO fills up and packets get
-       * dropped, so we don't check the return value from sbp_process. It's a good
-       * idea to incorporate this check into your host's code, though. */
-      //if (ret < 0)
-      //  printf("sbp_process error: %d\n", (int)ret);
-    }
+    s8 ret = sbp_process(&sbp_state, &fifo_read);
+    /* Semihosting is slow - each loop the FIFO fills up and packets get
+     * dropped, so we don't check the return value from sbp_process. It's a good
+     * idea to incorporate this check into your host's code, though. */
+    //if (ret < 0)
+    //  printf("sbp_process error: %d\n", (int)ret);
 
     /* Print data from messages received from Piksi. */
     DO_EVERY(200000,
