@@ -14,6 +14,7 @@
 #include <string.h>
 
 #include <stm32f4xx.h>
+#include <semihosting.h>
 
 #include <sbp.h>
 #include <sbp_messages.h>
@@ -134,8 +135,11 @@ int main(void){
      */
     while (!fifo_empty()) {
       s8 ret = sbp_process(&sbp_state, &fifo_read);
-//      if (ret < 0)
-//        printf("sbp_process error.\n");
+      /* Semihosting is slow - each loop the FIFO fills up and packets get
+       * dropped, so we don't check the return value from sbp_process. It's a good
+       * idea to incorporate this check into your host's code, though. */
+      //if (ret < 0)
+      //  printf("sbp_process error: %d\n", (int)ret);
     }
 
     /* Print data from messages received from Piksi. */
@@ -191,8 +195,6 @@ int main(void){
       sprintf(rj, "%4.2f", ((float)dops.vdop/100));
       str_i += sprintf(str + str_i, "\tVDOP\t\t: %7s\n", rj);
       str_i += sprintf(str + str_i, "\n");
-
-      leds_toggle();
 
       SH_SendString(str);
     );
