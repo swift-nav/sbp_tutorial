@@ -70,7 +70,7 @@ __attribute__ ((used))
 int _write(int file, char *ptr, int len)
 {
   /* Copy the chars into a 0 delimited string. Not
-   * using strcpy as ptr[] may not be null terminated. */
+   * using strcpy as not sure ptr[] is null terminated. */
   char *str = malloc((len+1)*sizeof(char));
   str[len] = 0;
   memcpy(str, ptr, len);
