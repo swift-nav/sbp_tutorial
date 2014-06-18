@@ -4,7 +4,7 @@ sbp_tutorial
 This is a tutorial on how to receive SwiftNav Binary Protocol (SBP)
 messages from Piksi, using an STM32F4DISCOVERY Board as an example.
 
-For more information, see http://docs.swift-nav.com/wiki/SBP_Tutorial
+For more information, see http://docs.swift-nav.com/wiki/Piksi_Integration_Tutorial
 
 Submodules
 ==========
