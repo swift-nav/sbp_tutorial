@@ -22,7 +22,7 @@
 </editorArea>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/colin/Desktop/sbp_tutorial/main.c" title="main.c" tooltip="C:/Users/colin/Desktop/sbp_tutorial/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/sbp_tutorial/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="496" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3711" selectionTopPixel="1440"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="tutorial_implementation.h" partName="tutorial_implementation.h" path="C:/Users/colin/Desktop/sbp_tutorial/tutorial_implementation.h" title="tutorial_implementation.h" tooltip="C:/Users/colin/Desktop/sbp_tutorial/tutorial_implementation.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/sbp_tutorial/tutorial_implementation.h"/>
@@ -30,7 +30,7 @@
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="tutorial_implementation.c" partName="tutorial_implementation.c" path="C:/Users/colin/Desktop/sbp_tutorial/tutorial_implementation.c" title="tutorial_implementation.c" tooltip="C:/Users/colin/Desktop/sbp_tutorial/tutorial_implementation.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/sbp_tutorial/tutorial_implementation.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2108" selectionTopPixel="990"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2084" selectionTopPixel="1102"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f4xx.h" partName="system_stm32f4xx.h" path="C:/Users/colin/Desktop/sbp_tutorial/cmsis_boot/system_stm32f4xx.h" title="system_stm32f4xx.h" tooltip="C:/Users/colin/Desktop/sbp_tutorial/cmsis_boot/system_stm32f4xx.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/sbp_tutorial/cmsis_boot/system_stm32f4xx.h"/>
@@ -212,8 +212,8 @@
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.coocox.builder.ui.build"/>
 <hide_toolbar_item_id id="org.coocox.welcome.ui.action.welcome"/>
-<hide_toolbar_item_id id="org.coocox.codebugger.configuration.coideProgramDownloadAction"/>
 <hide_toolbar_item_id id="org.coocox.component.ui.ShowRepositoryAction"/>
+<hide_toolbar_item_id id="org.coocox.codebugger.configuration.coideProgramDownloadAction"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.debug.ui.DebugView"/>
 <view id="org.eclipse.cdt.dsf.debug.ui.disassembly.view"/>
@@ -287,25 +287,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sbp_tutorial/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sbp_tutorial/tutorial_implementation.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sbp_tutorial/syscalls/syscalls.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/sbp_tutorial/tutorial_implementation.c"/>
 </editors>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3625" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="5204" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3625" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="5123" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3625" y="0"/>
-</item>
-<item historyLabel="tutorial_implementation.c" index="1">
-<position info="not_deleted" x="2417" y="0"/>
-</item>
 <item historyLabel="tutorial_implementation.c" index="1">
 <position info="not_deleted" x="2164" y="0"/>
 </item>
@@ -435,6 +418,24 @@
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="5206" y="0"/>
 </item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3625" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="3">
+<position info="not_deleted" x="4775" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3625" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3713" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="3623" y="0"/>
+</item>
+<item historyLabel="tutorial_implementation.c" index="3">
+<position info="not_deleted" x="2084" y="0"/>
+</item>
 <item active="true" historyLabel="main.c" index="0">
 <position info="not_deleted" x="3625" y="0"/>
 </item>
@@ -484,6 +485,9 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tutorial_implementation.h" tooltip="stm32f4_discovery_sbp_tutorial/tutorial_implementation.h">
 <persistable path="/stm32f4_discovery_sbp_tutorial/tutorial_implementation.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" tooltip="sbp_tutorial/cmsis_boot/startup/startup_stm32f4xx.c">
+<persistable path="/sbp_tutorial/cmsis_boot/startup/startup_stm32f4xx.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" tooltip="sbp_tutorial/cmsis_boot/startup/startup_stm32f4xx.c">
 <persistable path="/sbp_tutorial/cmsis_boot/startup/startup_stm32f4xx.c"/>
