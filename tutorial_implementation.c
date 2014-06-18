@@ -91,7 +91,7 @@ u8 fifo_full(void){
 void USART1_IRQHandler(void)
 {
   fifo_write(USART1->DR);
-  DO_EVERY(1000,
+  DO_EVERY(250,
     leds_toggle();
   );
   USART1->SR &= ~(USART_FLAG_RXNE);
@@ -142,23 +142,33 @@ void usarts_setup(void){
 }
 
 void leds_set(void){
-  GPIO_SetBits(GPIOD, GPIO_Pin_13 | GPIO_Pin_12);
+  GPIO_SetBits(GPIOD, GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15);
 }
 
 void leds_unset(void){
-  GPIO_ResetBits(GPIOD, GPIO_Pin_13 | GPIO_Pin_12);
+  GPIO_ResetBits(GPIOD, GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15);
 }
 
 void leds_toggle(void){
+  if (GPIO_ReadOutputDataBit(GPIOD, GPIO_Pin_12))
+    GPIO_ResetBits(GPIOD, GPIO_Pin_12);
+  else
+    GPIO_SetBits(GPIOD, GPIO_Pin_12);
+
   if (GPIO_ReadOutputDataBit(GPIOD, GPIO_Pin_13))
     GPIO_ResetBits(GPIOD, GPIO_Pin_13);
   else
     GPIO_SetBits(GPIOD, GPIO_Pin_13);
 
-  if (GPIO_ReadOutputDataBit(GPIOD, GPIO_Pin_12))
-    GPIO_ResetBits(GPIOD, GPIO_Pin_12);
+  if (GPIO_ReadOutputDataBit(GPIOD, GPIO_Pin_14))
+    GPIO_ResetBits(GPIOD, GPIO_Pin_14);
   else
-    GPIO_SetBits(GPIOD, GPIO_Pin_12);
+    GPIO_SetBits(GPIOD, GPIO_Pin_14);
+
+  if (GPIO_ReadOutputDataBit(GPIOD, GPIO_Pin_15))
+    GPIO_ResetBits(GPIOD, GPIO_Pin_15);
+  else
+    GPIO_SetBits(GPIOD, GPIO_Pin_15);
 }
 
 void leds_setup(void)
@@ -168,7 +178,7 @@ void leds_setup(void)
   /* GPIOD Periph clock enable */
   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
 
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13;
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
