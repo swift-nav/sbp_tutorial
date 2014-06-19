@@ -35,6 +35,16 @@ sbp_dops_t         dops;
 sbp_gps_time_t     gps_time;
 
 /*
+ * SBP callback nodes must be statically allocated. Each message ID / callback
+ * pair must have a unique sbp_msg_callbacks_node_t associated with it.
+ */
+sbp_msg_callbacks_node_t pos_llh_node;
+sbp_msg_callbacks_node_t baseline_ned_node;
+sbp_msg_callbacks_node_t vel_ned_node;
+sbp_msg_callbacks_node_t dops_node;
+sbp_msg_callbacks_node_t gps_time_node;
+
+/*
  * Callback functions to interpret SBP messages.
  * Every message ID has a callback associated with it to
  * receive and interpret the message payload.
@@ -58,7 +68,6 @@ void sbp_dops_callback(u16 sender_id, u8 len, u8 msg[], void *context)
 void sbp_gps_time_callback(u16 sender_id, u8 len, u8 msg[], void *context)
 {
   gps_time = *(sbp_gps_time_t *)msg;
-//  leds_set();
 }
 
 /*
@@ -75,16 +84,6 @@ void sbp_setup(void)
 {
   /* SBP parser state must be initialized before sbp_process is called. */
   sbp_state_init(&sbp_state);
-
-  /*
-   * SBP callback nodes must be statically allocated. Each message ID / callback
-   * pair must have a unique sbp_msg_callbacks_node_t associated with it.
-   */
-  static sbp_msg_callbacks_node_t gps_time_node;
-  static sbp_msg_callbacks_node_t pos_llh_node;
-  static sbp_msg_callbacks_node_t baseline_ned_node;
-  static sbp_msg_callbacks_node_t vel_ned_node;
-  static sbp_msg_callbacks_node_t dops_node;
 
   /* Register a node and callback, and associate them with a specific message ID. */
   sbp_register_callback(&sbp_state, SBP_GPS_TIME, &sbp_gps_time_callback,
@@ -141,7 +140,7 @@ int main(void){
     //  printf("sbp_process error: %d\n", (int)ret);
 
     /* Print data from messages received from Piksi. */
-    DO_EVERY(200000,
+    DO_EVERY(10000,
 
       str_i = 0;
       memset(str, 0, sizeof(str));
