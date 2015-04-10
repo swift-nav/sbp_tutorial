@@ -12,13 +12,10 @@
 
 #include <stdio.h>
 #include <string.h>
-
 #include <stm32f4xx.h>
 #include <semihosting.h>
-
-#include <sbp.h>
-#include <sbp_messages.h>
-
+#include <libsbp/sbp.h>
+#include <libsbp/navigation.h>
 #include <tutorial_implementation.h>
 
 /*
