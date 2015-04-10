@@ -24,12 +24,12 @@
  */
 sbp_state_t sbp_state;
 
-/* Structs that messages from Piksi will feed. */
-sbp_pos_llh_t      pos_llh;
-sbp_baseline_ned_t baseline_ned;
-sbp_vel_ned_t      vel_ned;
-sbp_dops_t         dops;
-sbp_gps_time_t     gps_time;
+/* SBP structs that messages from Piksi will feed. */
+msg_pos_llh_t      pos_llh;
+msg_baseline_ned_t baseline_ned;
+msg_vel_ned_t      vel_ned;
+msg_dops_t         dops;
+msg_gps_time_t     gps_time;
 
 /*
  * SBP callback nodes must be statically allocated. Each message ID / callback
@@ -48,23 +48,23 @@ sbp_msg_callbacks_node_t gps_time_node;
  */
 void sbp_pos_llh_callback(u16 sender_id, u8 len, u8 msg[], void *context)
 {
-  pos_llh = *(sbp_pos_llh_t *)msg;
+  pos_llh = *(msg_pos_llh_t *)msg;
 }
 void sbp_baseline_ned_callback(u16 sender_id, u8 len, u8 msg[], void *context)
 {
-  baseline_ned = *(sbp_baseline_ned_t *)msg;
+  baseline_ned = *(msg_baseline_ned_t *)msg;
 }
 void sbp_vel_ned_callback(u16 sender_id, u8 len, u8 msg[], void *context)
 {
-  vel_ned = *(sbp_vel_ned_t *)msg;
+  vel_ned = *(msg_vel_ned_t *)msg;
 }
 void sbp_dops_callback(u16 sender_id, u8 len, u8 msg[], void *context)
 {
-  dops = *(sbp_dops_t *)msg;
+  dops = *(msg_dops_t *)msg;
 }
 void sbp_gps_time_callback(u16 sender_id, u8 len, u8 msg[], void *context)
 {
-  gps_time = *(sbp_gps_time_t *)msg;
+  gps_time = *(msg_gps_time_t *)msg;
 }
 
 /*
@@ -193,5 +193,4 @@ int main(void){
       SH_SendString(str);
     );
   }
-
 }
