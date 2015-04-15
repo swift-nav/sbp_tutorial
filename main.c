@@ -83,15 +83,15 @@ void sbp_setup(void)
   sbp_state_init(&sbp_state);
 
   /* Register a node and callback, and associate them with a specific message ID. */
-  sbp_register_callback(&sbp_state, SBP_GPS_TIME, &sbp_gps_time_callback,
+  sbp_register_callback(&sbp_state, SBP_MSG_GPS_TIME, &sbp_gps_time_callback,
                         NULL, &gps_time_node);
-  sbp_register_callback(&sbp_state, SBP_POS_LLH, &sbp_pos_llh_callback,
+  sbp_register_callback(&sbp_state, SBP_MSG_POS_LLH, &sbp_pos_llh_callback,
                         NULL, &pos_llh_node);
-  sbp_register_callback(&sbp_state, SBP_BASELINE_NED, &sbp_baseline_ned_callback,
+  sbp_register_callback(&sbp_state, SBP_MSG_BASELINE_NED, &sbp_baseline_ned_callback,
                         NULL, &baseline_ned_node);
-  sbp_register_callback(&sbp_state, SBP_VEL_NED, &sbp_vel_ned_callback,
+  sbp_register_callback(&sbp_state, SBP_MSG_VEL_NED, &sbp_vel_ned_callback,
                         NULL, &vel_ned_node);
-  sbp_register_callback(&sbp_state, SBP_DOPS, &sbp_dops_callback,
+  sbp_register_callback(&sbp_state, SBP_MSG_DOPS, &sbp_dops_callback,
                         NULL, &dops_node);
 }
 
