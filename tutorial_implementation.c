@@ -24,8 +24,7 @@
 #include <tutorial_implementation.h>
 
 /*
- * FIFO to hold received UART bytes before
- * libswiftnav SBP submodule parses them.
+ * FIFO to hold received UART bytes before libsbp parses them.
  */
 #define FIFO_LEN 512
 char sbp_msg_fifo[FIFO_LEN];
